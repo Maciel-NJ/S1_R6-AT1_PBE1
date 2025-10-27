@@ -1,0 +1,1 @@
+const {produtoModel} = require("../models/produtoModel");

@@ -1,0 +1,214 @@
+type: collection.insomnia.rest/5.0
+name: Loja Spricio
+meta:
+  id: wrk_734d3c392441495bb1433ee19026735a
+  created: 1760983734445
+  modified: 1760983734445
+  description: ""
+collection:
+  - name: Produtos
+    meta:
+      id: fld_bee4a093ae9145259558871636106f16
+      created: 1761583656418
+      modified: 1761583656418
+      sortKey: -1761583656418
+      description: ""
+    children:
+      - url: localhost:8081/produtos/1
+        name: Deletar produtos por ID
+        meta:
+          id: req_6debe2a4b1e248959ae71d0853c46adf
+          created: 1761583696269
+          modified: 1761583931729
+          isPrivate: false
+          description: ""
+          sortKey: -1761583696269
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8081/produtos
+        name: Buscar todos os produtos
+        meta:
+          id: req_20c91e1981dd40478ff0e485433f4ffe
+          created: 1761583752121
+          modified: 1761583938424
+          isPrivate: false
+          description: ""
+          sortKey: -1761583752121
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8081/produtos/5
+        name: Buscar produtos pelo ID
+        meta:
+          id: req_53d6ede032af4f3ca6a1d249041300ff
+          created: 1761583771059
+          modified: 1761583952681
+          isPrivate: false
+          description: ""
+          sortKey: -1761583771059
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8081/produtos
+        name: Incluir um novo produto
+        meta:
+          id: req_41725535debe42fc86e7191a9bacd7d6
+          created: 1761583793782
+          modified: 1761583998794
+          isPrivate: false
+          description: ""
+          sortKey: -1761583793782
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"descricao": "manga",
+            	"valor": 80.00
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8081/produtos/6
+        name: Atualizar produto
+        meta:
+          id: req_715a931bdb364d88bda66ba05f3ad3c7
+          created: 1761583821248
+          modified: 1761584088075
+          isPrivate: false
+          description: ""
+          sortKey: -1761583821248
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	
+            	"descricao": "café",
+            	"valor": "200.00"
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Clientes
+    meta:
+      id: fld_780bb0a96f15449cbb1424fac6a52fae
+      created: 1761584497410
+      modified: 1761584497410
+      sortKey: -1761584497410
+      description: ""
+    children:
+      - url: localhost:8081/clientes
+        name: Buscar todos os clientes
+        meta:
+          id: req_1ce678fce8cf466b9b0365ff55edae81
+          created: 1761589283172
+          modified: 1761589660166
+          isPrivate: false
+          description: ""
+          sortKey: -1761589283172
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8081/clientes
+        name: Cadastrar novo cliente
+        meta:
+          id: req_1899cef172054e9786dceff83da70c46
+          created: 1761589303917
+          modified: 1761590440321
+          isPrivate: false
+          description: ""
+          sortKey: -1761589303917
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "João" ,
+            	"cpf": "11111111111"
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_bbf08af62ab57db08db4effa8431ce0ad77bd825
+    created: 1760983734465
+    modified: 1760983734465
+environments:
+  name: Base Environment
+  meta:
+    id: env_bbf08af62ab57db08db4effa8431ce0ad77bd825
+    created: 1760983734455
+    modified: 1760983734455
+    isPrivate: false
