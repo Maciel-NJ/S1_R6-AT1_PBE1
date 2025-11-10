@@ -46,7 +46,7 @@ const clienteModel = {
 
 
     alterarCliente: async (pId, pNome, pCpf) => {
-        const sql = 'UPDATE clientes SET nome=?, cpf=? WHERE id_cliente=?; ';
+        const sql = 'UPDATE clientes SET nome=?, cpf=? WHERE id_produto=?; ';
         const values = [pNome, pCpf, pId];
         const [rows] = await pool.query(sql, values);
         return rows;

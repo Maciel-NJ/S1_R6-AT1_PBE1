@@ -28,19 +28,19 @@ const clienteModel = {
 
     },
 
-    buscaPeloId: async (pId) => {
+buscaPeloId: async (pId) => {
         const sql = `SELECT * FROM clientes WHERE id_cliente = ?`;
         const values = [pId]
         const [rows] = await pool.query(sql, values);
         return rows;
+    
+} ,
 
-    },
-
-    deleteCliente: async (pId) => {
-        const sql = 'DELETE FROM clientes WHERE id_cliente = ?; ';
-        const values = [pId];
-        const [rows] = await pool.query(sql, values);
-        return rows;
+ deleteCliente: async (pId)=>{
+const sql = 'DELETE FROM clientes WHERE id_cliente = ?; ' ;
+const values = [pId];
+const [rows] = await pool.query(sql, values);
+return rows;
 
     },
 

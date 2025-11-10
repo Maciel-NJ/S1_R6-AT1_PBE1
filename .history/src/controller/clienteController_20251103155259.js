@@ -91,7 +91,7 @@ const clienteController = {
 
     buscarClientePorId: async (req, res) => {
         try {
-            const id = Number(req.query.idCliente);
+            const id = Number(req.params.idCliente);
             if (!id || !Number.isInteger(id)) {
                 return res.status(400).json({ message: 'Informe um ID válido!' });
             }
@@ -115,7 +115,7 @@ const clienteController = {
             nome = nome.trim();
 
             if (!idCliente || !nome || !cpf || typeof idCliente !== 'number' || !isNaN(nome) || cpf.length !== 11 || nome.trim().length < 3) {
-                return res.status(400).json({ message: 'Verifique os dados enviados e tente novamente' });
+                return res.status(400), json({ message: 'Verifique os dados enviados e tente novamente' });
 
             }
 
@@ -133,7 +133,7 @@ const clienteController = {
                 throw new Error('Ocorreu um erro ao atualizar o cadastro do cliente :(');
 
             }
-
+F
             res.status(200).json({ message: 'Cadastro atualizado com sucesso :)', data: resultado });
 
         } catch (error) {

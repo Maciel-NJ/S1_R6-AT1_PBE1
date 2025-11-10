@@ -115,7 +115,7 @@ const clienteController = {
             nome = nome.trim();
 
             if (!idCliente || !nome || !cpf || typeof idCliente !== 'number' || !isNaN(nome) || cpf.length !== 11 || nome.trim().length < 3) {
-                return res.status(400).json({ message: 'Verifique os dados enviados e tente novamente' });
+                return res.status(400), json({ message: 'Verifique os dados enviados e tente novamente' });
 
             }
 

@@ -173,7 +173,7 @@ collection:
         meta:
           id: req_1899cef172054e9786dceff83da70c46
           created: 1761589303917
-          modified: 1761590440321
+          modified: 1762772067362
           isPrivate: false
           description: ""
           sortKey: -1761589303917
@@ -183,12 +183,98 @@ collection:
           text: |-
             {
             	"nome": "João" ,
-            	"cpf": "11111111111"
+            	"cpf": "11111111199"
             	
             }
         headers:
           - name: Content-Type
             value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8081/clientes/4
+        name: Deletar cadastro de cliente
+        meta:
+          id: req_e2369076d69843d98bc40fa02c01081b
+          created: 1762196297467
+          modified: 1762196434100
+          isPrivate: false
+          description: ""
+          sortKey: -1761589304017
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8081/clientes/5
+        name: Atualizar cadastro de cliente
+        meta:
+          id: req_00771fcf7e4c40d9892fbdf56e1296b0
+          created: 1762196307250
+          modified: 1762197083635
+          isPrivate: false
+          description: ""
+          sortKey: -1761589304117
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	
+            	"nome": "ronaldo",
+            	"cpf": "55555555555"
+            	
+            }
+        parameters:
+          - id: pair_d355f4d42c0545508ac7ac099ae12154
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8081/cliente
+        name: Buscar cliente pelo id
+        meta:
+          id: req_dbf85ad803b94d15b6d34f923f34262b
+          created: 1762196311672
+          modified: 1762772018772
+          isPrivate: false
+          description: ""
+          sortKey: -1761589304217
+        method: GET
+        parameters:
+          - id: pair_43dbf8e3552d4217bf3510a0f8810736
+            name: idCliente
+            value: "3"
+            description: ""
+            disabled: false
+        headers:
           - name: User-Agent
             value: insomnia/11.6.2
         settings:

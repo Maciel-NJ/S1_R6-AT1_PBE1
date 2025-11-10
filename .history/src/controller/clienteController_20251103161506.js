@@ -91,7 +91,7 @@ const clienteController = {
 
     buscarClientePorId: async (req, res) => {
         try {
-            const id = Number(req.query.idCliente);
+            const id = Number(req.que.idCliente);
             if (!id || !Number.isInteger(id)) {
                 return res.status(400).json({ message: 'Informe um ID válido!' });
             }

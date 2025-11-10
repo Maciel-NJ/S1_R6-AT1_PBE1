@@ -34,17 +34,17 @@ const clienteController = {
 
             const cpfEmUso = await clienteModel.validacaoCpf(cpf);
             if (cpfEmUso.length > 0) {
-                return res.status(409).json({ message: 'Este CPF já está sendo usado por um cliente' });
+                return res.status(409).json({message:'Este CPF já está sendo usado por um cliente'});
             }
 
             const resultado = await clienteModel.criarCadastro(nome, cpf);
 
             if (resultado.affectedRows === 1 && resultado.insertId != 0) {
                 res.status(200).json({ message: 'Cliente incluído com sucesso', result: resultado })
-            }
-
-
-
+            } 
+            
+            
+            
             else {
 
                 throw new Error('Ocorreu um erro ao tentar cadastrar o cliente :( ');
@@ -67,18 +67,18 @@ const clienteController = {
             }
 
             const clienteSelecionado = await clienteModel.buscaPeloId(id);
-
-            if (clienteSelecionado.length === 0) {
+        
+            if (clieneSelecionado.length === 0) {
                 throw new Error('Não conseguimos localizar o cliente para exclusão');
             }
             else {
 
-                const resultado = await clienteModel.deleteCliente(id);
+                const resultado = await produtoModel.deleteProduto(id);
                 if (resultado.affectedRows === 1) {
                     res.status(200).json({ message: 'Cliente apagado com sucesso!', data: resultado });
                 }
                 else {
-                    throw new Error('Não foi possível excluir o cliente');
+                    throw new Error('Não foi possível excluir o cliente'); 
                 }
 
             }
@@ -87,62 +87,9 @@ const clienteController = {
             console.error(error);
             res.status(500).json({ message: 'Ocorreu um erro no servidor :(', errorMessage: error.message });
         }
-    },
-
-    buscarClientePorId: async (req, res) => {
-        try {
-            const id = Number(req.query.idCliente);
-            if (!id || !Number.isInteger(id)) {
-                return res.status(400).json({ message: 'Informe um ID válido!' });
-            }
-            const resultado = await clienteModel.buscaPeloId(id);
-            res.status(200).json({ message: 'Resultado do cliente procurado:', data: resultado });
-
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ message: 'Ocorreu um erro no servidor :(', errorMessage: error.message });
-        }
-    },
-
-
-
-
-    atualizarCliente: async (req, res) => {
-        try {
-            const idCliente = Number(req.params.idCliente);
-            let { nome, cpf } = req.body;
-
-            nome = nome.trim();
-
-            if (!idCliente || !nome || !cpf || typeof idCliente !== 'number' || !isNaN(nome) || cpf.length !== 11 || nome.trim().length < 3) {
-                return res.status(400).json({ message: 'Verifique os dados enviados e tente novamente' });
-
-            }
-
-            const cadastroAtual = await clienteModel.buscaPeloId(idCliente);
-            if (cadastroAtual.length === 0) {
-                throw new Error('O cadastro do cliente não foi localizado')
-            }
-
-            const novoNome = nome ?? cadastroAtual[0].nome;
-            const novoCpf = cpf ?? cadastroAtual[0].cpf;
-
-            const resultado = await clienteModel.alterarCliente(idCliente, novoNome, novoCpf)
-
-            if (resultado.changedRows === 0) {
-                throw new Error('Ocorreu um erro ao atualizar o cadastro do cliente :(');
-
-            }
-
-            res.status(200).json({ message: 'Cadastro atualizado com sucesso :)', data: resultado });
-
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ message: 'Ocorreu um erro no servidor  :(', errorMessage: error.message })
-
-
-        }
     }
+
+
 
 
 
